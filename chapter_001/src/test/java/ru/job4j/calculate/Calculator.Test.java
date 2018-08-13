@@ -27,7 +27,7 @@ public class CalculatorTest {
     @Test
     public void whenDivideFourByTwoThenTwo() {
         Calculator calc = new Calculator();
-        calc.div(4D, 4D);
+        calc.div(4D, 2D);
         double result = calc.getResult();
         double expected = 2D;
         assertThat(result, is(expected));
