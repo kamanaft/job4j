@@ -12,9 +12,7 @@ public class Max {
     }
 
     public int maxTree(int first, int second, int third) {
-        int temp = this.max(first, second);
-        int tempo = this.max(temp, third);
-        return tempo;
+        return this.max(this.max(first, second), third);
     }
 
 }
