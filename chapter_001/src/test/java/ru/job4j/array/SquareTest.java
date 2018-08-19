@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 public class SquareTest {
     @Test
-    public void whenBound3THen149() {
+    public void whenBound3Then149() {
         int bound = 3;
         Square square = new Square();
         int[] rst = square.calculate(bound);
@@ -22,7 +22,7 @@ public class SquareTest {
     }
 
     @Test
-    public void whenBound5THen1491625() {
+    public void whenBound5Then1491625() {
         int bound = 5;
         Square square = new Square();
         int[] rst = square.calculate(bound);
