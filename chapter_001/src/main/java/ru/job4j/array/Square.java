@@ -12,7 +12,7 @@ public class Square {
     public int[] calculate(int bound) {
         int[] rst = new int[bound];
         for (int index = 0; index != rst.length; index++) {
-            rst[index] = (int) Math.pow(index + 1, 2);
+            rst[index] = (index + 1) * (index + 1);
         }
         return rst;
     }
