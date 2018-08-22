@@ -1,17 +1,13 @@
 package ru.job4j.array;
 
-import java.util.function.BiPredicate;
-
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $01$
- * @since 20.08.2018
+ * @version $02$
+ * @since 21.08.2018
  */
 
 public class Uglopricka {
-    public static void main(String[] args) {
-        String[][] pole = new String[3][3];
-
+    public String diagon(String[][] pole) {
         for (int index = 0; index != pole.length; index++) {
             for (int yandex = 0; yandex != pole.length; yandex++) {
                 if (index == yandex) {
@@ -19,8 +15,9 @@ public class Uglopricka {
                 } else {
                     pole[index][yandex] = "0";
                 }
-                System.out.print(pole[index][yandex]);
-            }System.out.println();
+                //System.out.print(pole[index][yandex]);
+            }//System.out.println();
         }
+        return pole.toString();
     }
 }
