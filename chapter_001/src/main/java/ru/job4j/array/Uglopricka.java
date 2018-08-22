@@ -7,7 +7,7 @@ package ru.job4j.array;
  */
 
 public class Uglopricka {
-    public String diagon(String[][] pole) {
+    public String[][] diagon(String[][] pole) {
         for (int index = 0; index != pole.length; index++) {
             for (int yandex = 0; yandex != pole.length; yandex++) {
                 if (index == yandex) {
@@ -18,6 +18,6 @@ public class Uglopricka {
                 //System.out.print(pole[index][yandex]);
             }//System.out.println();
         }
-        return pole.toString();
+        return pole;
     }
 }

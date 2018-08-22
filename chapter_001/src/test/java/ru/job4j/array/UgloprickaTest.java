@@ -23,14 +23,8 @@ public class UgloprickaTest {
     public void whenMassivThreeByThreeMakesDiagonal() {
         Uglopricka diag = new Uglopricka();
         String[][] pole = diag.diagon(3, 3);
-
-        assertThat(pole, is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                                .add("100")
-                                .add("010")
-                                .add("001")
-                                .toString()
-                )
-        );
+        String[][] expect = new String[3][3];
+        assertThat(pole, is(expect));
     }
 }
 
