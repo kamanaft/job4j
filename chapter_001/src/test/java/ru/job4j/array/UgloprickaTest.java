@@ -22,11 +22,11 @@ public class UgloprickaTest {
     @Test
     public void whenMassivThreeByThreeMakesDiagonal() {
         Uglopricka diag = new Uglopricka();
-        String[][] pole = diag.diagon(3);
-        String[][] expect = {
-                {"1", "0", "0"},
-                {"0", "1", "0"},
-                {"0", "0", "1"}
+        int[][] pole = diag.diagon(3);
+        int[][] expect = {
+                {1, 0, 0},
+                {0, 1, 0},
+                {0, 0, 1}
         };
         assertThat(pole, is(expect));
     }

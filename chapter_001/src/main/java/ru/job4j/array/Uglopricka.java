@@ -2,21 +2,15 @@ package ru.job4j.array;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $03$
+ * @version $04$
  * @since 23.08.2018
  */
 
 public class Uglopricka {
-    public String[][] diagon(int pole) {
-        String[][] table = new String[pole][pole];
+    public int[][] diagon(int pole) {
+        int[][] table = new int[pole][pole];
         for (int index = 0; index != table.length; index++) {
-            for (int yandex = 0; yandex != table.length; yandex++) {
-                if (index == yandex) {
-                    table[index][yandex] = "1";
-                } else {
-                    table[index][yandex] = "0";
-                }
-            }
+            table[index][index] = 1;
         }
         return table;
     }
