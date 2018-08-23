@@ -10,8 +10,8 @@ import static org.junit.Assert.assertThat;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $01$
- * @since 21.08.2018
+ * @version $02$
+ * @since 22.08.2018
  */
 
 
@@ -22,8 +22,12 @@ public class UgloprickaTest {
     @Test
     public void whenMassivThreeByThreeMakesDiagonal() {
         Uglopricka diag = new Uglopricka();
-        String[][] pole = diag.diagon(3, 3);
-        String[][] expect = new String[3][3];
+        String[][] pole = diag.diagon(3);
+        String[][] expect = {
+                {"1", "0", "0"},
+                {"0", "1", "0"},
+                {"0", "0", "1"}
+        };
         assertThat(pole, is(expect));
     }
 }
