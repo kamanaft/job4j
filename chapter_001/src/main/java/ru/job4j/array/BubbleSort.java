@@ -2,8 +2,8 @@ package ru.job4j.array;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $01$
- * @since 24.08.2018
+ * @version $02$
+ * @since 27.08.2018
  */
 
 public class BubbleSort {
@@ -15,15 +15,12 @@ public class BubbleSort {
      * @return
      */
     public int[] sort(int[] array) {
-        boolean sorted = false;
-        while (!sorted) {
-            sorted = true;
-            for (int index = 0; index != array.length - 1; index++) {
-                if (array[index] > array[index + 1]) {
-                    sorted = false;
-                    int temp = array[index];
-                    array[index] = array[index + 1];
-                    array[index + 1] = temp;
+        for (int a = 0; a != array.length - 1; a++) {
+            for (int b = 1; b != array.length - a; b++) {
+                if (array[b - 1] > array[b]) {
+                    int buf = array[b - 1];
+                    array[b - 1] = array[b];
+                    array[b] = buf;
                 }
             }
         }
