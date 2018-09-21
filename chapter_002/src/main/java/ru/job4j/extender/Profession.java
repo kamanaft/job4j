@@ -2,8 +2,8 @@ package ru.job4j.extender;
 
 public class Profession {
 
-    public String name;
-    public String description;
+    private String name;
+    private String description;
 
     public void setName(String userName) {
         this.name = name;

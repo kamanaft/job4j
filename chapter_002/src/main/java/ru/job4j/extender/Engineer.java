@@ -3,11 +3,12 @@ package ru.job4j.extender;
 public class Engineer extends Profession {
 
     public String specialization;
-    public int experience;
+    public int experienceYears;
     public int salary;
 
     Engineer engineer = new Engineer();
-    //this.experience =experience;
+    //this.specialization =specialization;
+    //this.experienceYears =experienceYears;
     //this.salary =salary;
 
 
@@ -20,7 +21,7 @@ public class Engineer extends Profession {
     }
 
     public int countSalary() {
-        return salary * experience;
+        return salary * experienceYears / 10;
     }
 
 

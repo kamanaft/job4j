@@ -5,12 +5,15 @@ public class Teacher extends Profession {
     String subject;
     int lectionHours;
 
-    public void teach() {
+    Teacher teacher = new Teacher();
+    //this.subject =subject;
+    //this.lectionHours;
 
+
+    public void teach() {
     }
 
     public void takeExam() {
-
     }
 
 }

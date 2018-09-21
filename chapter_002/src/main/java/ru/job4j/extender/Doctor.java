@@ -2,15 +2,16 @@ package ru.job4j.extender;
 
 public class Doctor extends Profession {
 
-    String branch;
-    int experienceYears;
+    private String hospital;
+    public int experience;
 
     Doctor house = new Doctor();
-    //this.branch =branch;
-    //this.experienceYears =experienceYears;
+    //this.experience = experience;
 
-    public void heal() {
-
+    public String getSphere() {
+        return hospital;
     }
 
+    public void heal() {
+    }
 }
