@@ -55,6 +55,7 @@ public class Tracker {
         for (int index = 0; index != this.position; index++) {
             if (item != null && item.getId().equals(id)) {
                 this.items[index] = item;
+                item.setId(id);
                 break;
             }
         }
@@ -66,12 +67,20 @@ public class Tracker {
      * @param id Уникальный ключ.
      */
     public void delete(String id) {
+        int unique = 0;
         for (int index = 0; index != this.position; index++) {
             if (items[index].getId().equals(id)) {
                 this.items[index] = null;
+                unique = index;
                 break;
             }
         }
+        Item[] buffer = new Item[this.items.length - 2];
+        buffer[0] = this.items[items.length - 1];
+        this.items[items.length - 1] = this.items[unique];
+        this.items[unique] = buffer[0];
+        System.arraycopy(this.items, 0, buffer, 0, (items.length - 2));
+        this.items = buffer;
     }
 
     /**
@@ -82,30 +91,16 @@ public class Tracker {
         for (int index = 0; index != this.position; index++) {
             result[index] = this.items[index];
         }
-        return result;
-    }
-
-    /**
-     * Метод, реализующий получение всех активных заявок.
-     */
-    public Item[] findAllActive() {
-        int count = 0;
-        for (Item item : items) {
-            if (item != null) {
-                count++;
+        int unique = result.length;
+        for (int count = 0; count != result.length - 1; count++) {
+            if (result[count] == null) {
+                result[count] = result[result.length - 1];
+                result[result.length - 1] = null;
+                unique--;
             }
         }
-        Item[] result = new Item[count];
-        int incount = 0;
-        for (int index = 0; index != this.position; index++) {
-            if (items[index] != null) {
-                result[incount] = this.items[index];
-                incount++;
-            }
-        }
-        return result;
+        return Arrays.copyOf(result, unique);
     }
-
 
     /**
      * Метод, реализующий получение списка по имени.

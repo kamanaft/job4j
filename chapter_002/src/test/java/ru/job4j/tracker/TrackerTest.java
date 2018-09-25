@@ -56,7 +56,7 @@ public class TrackerTest {
         tracker.add(three);
         tracker.delete(two.getId());
         Item[] result = new Item[]{one, three};
-        assertThat(tracker.findAllActive(), is(result));
+        assertThat(tracker.findAll(), is(result));
     }
 
 
