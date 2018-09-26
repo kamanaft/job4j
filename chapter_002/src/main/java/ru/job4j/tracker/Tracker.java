@@ -68,6 +68,17 @@ public class Tracker {
      * @param id Уникальный ключ.
      */
     public void delete(String id) {
+        for (int index = 0; index != this.position; index++) {
+            if (items[index].getId().equals(id)) {
+                System.arraycopy(this.items, index + 1, this.items, index, (items.length - 1 - index));
+                this.items[position--] = null;
+                break;
+            }
+        }
+    }
+
+
+    /*public void delete(String id) {
         int unique = 0;
         for (int index = 0; index != this.position; index++) {
             if (items[index].getId().equals(id)) {
@@ -82,7 +93,7 @@ public class Tracker {
                 break;
             }
         }
-    }
+    }*/
 
     /**
      * Метод, реализующий получение списка всех заявок.
@@ -138,12 +149,12 @@ public class Tracker {
     /**
      * Метод, реализующий добавление комментария.
      *
-     * @param name    Имя заявки.
+     * @param id    Имя заявки.
      * @param comment Комментарий к заявке.
      */
-    public void addComment(String name, String comment) {
+    public void addComment(String id, String comment) {
         for (Item item : items) {
-            if (item.getName().equals(name)) {
+            if (item.getId().equals(id)) {
                 item.setComment(comment);
                 break;
             }

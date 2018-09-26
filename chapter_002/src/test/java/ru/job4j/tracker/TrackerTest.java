@@ -82,12 +82,10 @@ public class TrackerTest {
         tracker.add(one);
         Item two = new Item("itemTwo", "itemTwoDescription", 387L, "");
         tracker.add(two);
-        Item three = new Item("itemThree", "itemThreeDescription", 3397L, "Test");
+        Item three = new Item("itemThree", "itemThreeDescription", 3397L, "");
         tracker.add(three);
-        tracker.addComment("itemThree", "Victory");
+        tracker.addComment(three.getId(), "Victory");
         Item[] result = new Item[]{three};
         assertThat(tracker.findByComment("Victory"), is(result));
     }
-
-
 }
