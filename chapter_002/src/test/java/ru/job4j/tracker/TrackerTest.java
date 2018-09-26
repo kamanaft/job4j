@@ -59,5 +59,35 @@ public class TrackerTest {
         assertThat(tracker.findAll(), is(result));
     }
 
+    //Тест проверки выдачи заявки по имени.
+    @Test
+    public void whenAddThreeItemsAndAskForOneThenReceiveOneWithCorrectName() {
+        Tracker tracker = new Tracker();
+        Item one = new Item("itemOne", "itemOneDescription", 234L);
+        tracker.add(one);
+        Item two = new Item("itemTwo", "itemTwoDescription", 345L);
+        tracker.add(two);
+        Item three = new Item("itemThree", "itemThreeDescription", 567L);
+        tracker.add(three);
+        tracker.findByName("itemThree");
+        Item[] result = new Item[]{three};
+        assertThat(tracker.findByName("itemThree"), is(result));
+    }
+
+    //Тест поиска заявки по комментарию.
+    @Test
+    public void whenAddThreeItemsAddCommentToOneOfThemAndSearchByCommentThenFindItemWithCorrectComment() {
+        Tracker tracker = new Tracker();
+        Item one = new Item("itemOne", "itemOneDescription", 245L, "");
+        tracker.add(one);
+        Item two = new Item("itemTwo", "itemTwoDescription", 387L, "");
+        tracker.add(two);
+        Item three = new Item("itemThree", "itemThreeDescription", 3397L, "Test");
+        tracker.add(three);
+        tracker.addComment("itemThree", "Victory");
+        Item[] result = new Item[]{three};
+        assertThat(tracker.findByComment("Victory"), is(result));
+    }
+
 
 }

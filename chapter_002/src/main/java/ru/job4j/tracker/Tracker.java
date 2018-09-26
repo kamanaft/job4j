@@ -1,11 +1,12 @@
 package ru.job4j.tracker;
 
 import java.util.*;
+import java.lang.String;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $01$
- * @since 19.09.2018
+ * @version $02$
+ * @since 26.09.2018
  */
 
 public class Tracker {
@@ -108,21 +109,14 @@ public class Tracker {
      * @param name Имя заявки.
      */
     public Item[] findByName(String name) {
+        Item[] result = new Item[this.position];
         int count = 0;
-        for (Item item : items) {
-            if (item != null && item.getName().equals(name)) {
-                count++;
-            }
-        }
-        Item[] result = new Item[count];
-        int i = 0;
-        for (int index = 0; index != this.position; index++) {
+        for (int index = 0; index < this.position; index++) {
             if (items[index] != null && items[index].getName().equals(name)) {
-                result[i] = this.items[index];
-                i++;
+                result[count++] = this.items[index];
             }
         }
-        return result;
+        return Arrays.copyOf(result, count);
     }
 
     /**
@@ -144,17 +138,31 @@ public class Tracker {
     /**
      * Метод, реализующий добавление комментария.
      *
-     * @param id      Уникальный ключ.
+     * @param name    Имя заявки.
      * @param comment Комментарий к заявке.
      */
-    public void addComment(String id, String comment) {
+    public void addComment(String name, String comment) {
         for (Item item : items) {
-            if (item.getId().equals(id)) {
+            if (item.getName().equals(name)) {
                 item.setComment(comment);
                 break;
             }
         }
     }
 
-
+    /**
+     * Метод, реализующий получение заявки по комментарию.
+     *
+     * @param comment Комментарий к заявке.
+     */
+    public Item findByComment(String comment) {
+        Item result = null;
+        for (Item item : items) {
+            if (item.getComment().equals(comment)) {
+                result = item;
+                break;
+            }
+        }
+        return result;
+    }
 }
