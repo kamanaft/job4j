@@ -16,6 +16,12 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
+/**
+ * @author Alexey Zhukov (mailto:hadzage@gmail.com)
+ * @version $03$
+ * @since 27.09.2018
+ */
+
 public class TicTacToe extends Application {
     private static final String JOB4J = "Крестики-нолики www.job4j.ru";
     private final int size = 3;
@@ -71,7 +77,7 @@ public class TicTacToe extends Application {
         Group group = new Group();
         group.getChildren().addAll(
                 new Line(
-                        x + 10, y  + 10,
+                        x + 10, y + 10,
                         x + size - 10, y + size - 10
                 ),
                 new Line(

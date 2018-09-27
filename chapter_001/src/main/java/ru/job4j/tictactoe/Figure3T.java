@@ -2,6 +2,12 @@ package ru.job4j.tictactoe;
 
 import javafx.scene.shape.Rectangle;
 
+/**
+ * @author Alexey Zhukov (mailto:hadzage@gmail.com)
+ * @version $03$
+ * @since 27.09.2018
+ */
+
 public class Figure3T extends Rectangle {
     private boolean markX = false;
     private boolean markO = false;

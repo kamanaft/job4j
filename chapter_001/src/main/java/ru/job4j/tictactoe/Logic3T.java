@@ -1,5 +1,13 @@
 package ru.job4j.tictactoe;
 
+import java.util.function.Predicate;
+
+/**
+ * @author Alexey Zhukov (mailto:hadzage@gmail.com)
+ * @version $03$
+ * @since 27.09.2018
+ */
+
 public class Logic3T {
     private final Figure3T[][] table;
 
@@ -7,118 +15,92 @@ public class Logic3T {
         this.table = table;
     }
 
+    /**
+     * Реализация проверки выигрышной комбинации.
+     *
+     * @param predicate Параметризованное поведение.
+     * @param startX    Начальная позиция по оси Х.
+     * @param startY    Начальная позиция по оси Y.
+     * @param deltaX    Смещение по оси Х.
+     * @param deltaY    Смещение по оси Y.
+     * @return Вывод сообщения о выигрыше Х или Y.
+     */
+    public boolean fillBy(Predicate<Figure3T> predicate, int startX, int startY, int deltaX, int deltaY) {
+        boolean result = true;
+        for (int index = 0; index != this.table.length; index++) {
+            Figure3T cell = this.table[startX][startY];
+            startX += deltaX;
+            startY += deltaY;
+            if (!predicate.test(cell)) {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Проверка выигрыша Х.
+     *
+     * @return Выиграли Х.
+     */
     public boolean isWinnerX() {
-        boolean result = true;
-        for (int index = 0; index != table.length - 1; index++) {
-            if (table[0][0] != table[index][index]) {
-                result = false;
-                break;
-            }
-            if (table[table.length - 1][0] != table[table.length - 2 - index][index + 1]) {
-                result = false;
-                break;
-            }
-            if (table[0][0] != table[0][index]) {
-                result = false;
-                break;
-            }
-            if (table[0][0] != table[index][0]) {
-                result = false;
-                break;
-            }
-            if (table[1][0] != table[1][index]) {
-                result = false;
-                break;
-            }
-            if (table[0][1] != table[index][1]) {
-                result = false;
-                break;
-            }
-            if (table[2][0] != table[2][index]) {
-                result = false;
-                break;
-            }
-            if (table[0][2] != table[index][2]) {
-                result = false;
-                break;
-            }
-        }
-        return result;
+        return this.fillBy(Figure3T::hasMarkX, 0, 0, 1, 0)
+                || this.fillBy(Figure3T::hasMarkX, 0, 0, 0, 1)
+                || this.fillBy(Figure3T::hasMarkX, 0, 0, 1, 1)
+                || this.fillBy(Figure3T::hasMarkX, this.table.length - 1, 0, -1, 1)
+                || this.fillBy(Figure3T::hasMarkX, this.table.length - 1, 0, this.table.length - 2, 0)
+                || this.fillBy(Figure3T::hasMarkX, this.table.length - 1, 0, 0, 1)
+                || this.fillBy(Figure3T::hasMarkX, 0, 2, 0, 1)
+                || this.fillBy(Figure3T::hasMarkX, 0, 2, 1, 0)
+                || this.fillBy(Figure3T::hasMarkX, 0, 2, 1, 0)
+                || this.fillBy(Figure3T::hasMarkX, 2, 2, -1, 0)
+                || this.fillBy(Figure3T::hasMarkX, 2, 2, 0, -1)
+                || this.fillBy(Figure3T::hasMarkX, 2, 2, -1, -1)
+                || this.fillBy(Figure3T::hasMarkX, 1, 0, 1, 0)
+                || this.fillBy(Figure3T::hasMarkX, 0, 1, 1, 0)
+                || this.fillBy(Figure3T::hasMarkX, 1, 2, 0, -1)
+                || this.fillBy(Figure3T::hasMarkX, 2, 1, -1, 0);
     }
 
+    /**
+     * Проверка выигрыша О.
+     *
+     * @return Выиграли О.
+     */
     public boolean isWinnerO() {
-        boolean result = true;
-        for (int index = 0; index != table.length - 1; index++) {
-            if (table[0][0] != table[index][index]) {
-                result = false;
-                break;
-            }
-            if (table[table.length - 1][0] != table[table.length - 2 - index][index + 1]) {
-                result = false;
-                break;
-            }
-            if (table[0][0] != table[0][index]) {
-                result = false;
-                break;
-            }
-            if (table[0][0] != table[index][0]) {
-                result = false;
-                break;
-            }
-            if (table[1][0] != table[1][index]) {
-                result = false;
-                break;
-            }
-            if (table[0][1] != table[index][1]) {
-                result = false;
-                break;
-            }
-            if (table[2][0] != table[2][index]) {
-                result = false;
-                break;
-            }
-            if (table[0][2] != table[index][2]) {
-                result = false;
-                break;
-            }
-        }
-        return result;
+        return this.fillBy(Figure3T::hasMarkO, 0, 0, 1, 0)
+                || this.fillBy(Figure3T::hasMarkO, 0, 0, 0, 1)
+                || this.fillBy(Figure3T::hasMarkO, 0, 0, 1, 1)
+                || this.fillBy(Figure3T::hasMarkO, this.table.length - 1, 0, -1, 1)
+                || this.fillBy(Figure3T::hasMarkO, this.table.length - 1, 0, this.table.length - 2, 0)
+                || this.fillBy(Figure3T::hasMarkO, this.table.length - 1, 0, 0, 1)
+                || this.fillBy(Figure3T::hasMarkO, 0, 2, 0, 1)
+                || this.fillBy(Figure3T::hasMarkO, 0, 2, 1, 0)
+                || this.fillBy(Figure3T::hasMarkO, 0, 2, 1, 0)
+                || this.fillBy(Figure3T::hasMarkO, 2, 2, -1, 0)
+                || this.fillBy(Figure3T::hasMarkO, 2, 2, 0, -1)
+                || this.fillBy(Figure3T::hasMarkO, 2, 2, -1, -1)
+                || this.fillBy(Figure3T::hasMarkO, 1, 0, 1, 0)
+                || this.fillBy(Figure3T::hasMarkO, 0, 1, 1, 0)
+                || this.fillBy(Figure3T::hasMarkO, 1, 2, 0, -1)
+                || this.fillBy(Figure3T::hasMarkO, 2, 1, -1, 0);
     }
 
+
+    /**
+     * Проверка того, есть ли место для следующего хода.
+     *
+     * @return Поля для ходов есть.
+     */
     public boolean hasGap() {
         boolean result = false;
-        for (int index = 0; index != table.length - 1; index++) {
-            if (table[0][0] != table[index][index]) {
-                result = true;
-                break;
-            }
-            if (table[table.length - 1][0] != table[table.length - 2 - index][index + 1]) {
-                result = true;
-                break;
-            }
-            if (table[0][0] != table[0][index]) {
-                result = true;
-                break;
-            }
-            if (table[0][0] != table[index][0]) {
-                result = true;
-                break;
-            }
-            if (table[1][0] != table[1][index]) {
-                result = true;
-                break;
-            }
-            if (table[0][1] != table[index][1]) {
-                result = true;
-                break;
-            }
-            if (table[2][0] != table[2][index]) {
-                result = true;
-                break;
-            }
-            if (table[0][2] != table[index][2]) {
-                result = true;
-                break;
+        for (int out = 0; out != this.table.length; out++) {
+            for (int in = 0; in != this.table.length; in++) {
+                if (!(this.table[out][in].hasMarkO() || this.table[out][in].hasMarkX())) {
+                    result = true;
+                    break;
+                }
             }
         }
         return result;
