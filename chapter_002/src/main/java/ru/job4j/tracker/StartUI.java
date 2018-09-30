@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import javax.sound.midi.Track;
+import java.util.Arrays;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
@@ -101,6 +102,20 @@ public class StartUI {
         String desc = this.input.ask("Введите описание заявки : ");
         Item item = new Item(item);
         System.out.println("------------ Новая заявка с id " + item.getId() + "------------");
+    }
+
+    private void showAllItems() {
+        System.out.println("------------ Список имеющихся заявок ------------");
+        System.out.println(Arrays.toString(tracker.findAll()));
+    }
+
+    private void editItem() {
+        System.out.println("------------ Редактирование заявки ------------");
+        String id = this.input.ask("Введите id заявки : ");
+        String name = this.input.ask("Введите имя заявки : ");
+        String desc = this.input.ask("Введите описание заявки : ");
+        Item replaceItem = new Item();
+        System.out.println("Заявка изменена" + tracker.replace(id, replaceItem));
     }
 
     /**
