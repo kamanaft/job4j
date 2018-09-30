@@ -57,7 +57,7 @@ public class Logic3T {
             return this.fillBy(Figure3T::hasMarkX, 0, 0, 1, 1)
                     || this.fillBy(Figure3T::hasMarkX, this.table.length - 1, 0, -1, 1)
                     || this.fillBy(Figure3T::hasMarkX, 0, this.table.length - 1, 1, -1)
-                    || this.fillBy(Figure3T::hasMarkX, this.table.length - 1, this.table.length - 1, - 1, - 1);
+                    || this.fillBy(Figure3T::hasMarkX, this.table.length - 1, this.table.length - 1, -1, -1);
         }
         return result;
     }
@@ -80,7 +80,7 @@ public class Logic3T {
             return this.fillBy(Figure3T::hasMarkO, 0, 0, 1, 1)
                     || this.fillBy(Figure3T::hasMarkO, this.table.length - 1, 0, -1, 1)
                     || this.fillBy(Figure3T::hasMarkO, 0, this.table.length - 1, 1, -1)
-                    || this.fillBy(Figure3T::hasMarkO, this.table.length - 1, this.table.length - 1, - 1, - 1);
+                    || this.fillBy(Figure3T::hasMarkO, this.table.length - 1, this.table.length - 1, -1, -1);
         }
         return result;
     }

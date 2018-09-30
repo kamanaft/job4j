@@ -1,6 +1,6 @@
 package ru.job4j.tictactoe;
 
-import javafx.scene.shape.Rectangle;
+        import javafx.scene.shape.Rectangle;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
