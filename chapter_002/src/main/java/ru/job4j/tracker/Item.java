@@ -62,5 +62,16 @@ public class Item {
         this.comment = comment;
     }
 
+    @Override
+    public String toString() {
+        return "Item{"
+                + "id='" + id + '\''
+                + ", name='" + name + '\''
+                + ", description='" + description + '\''
+                + ", comment='" + comment + '\''
+                + ", create=" + create
+                + '}';
+    }
+
 
 }

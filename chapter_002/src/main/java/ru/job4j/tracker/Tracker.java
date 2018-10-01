@@ -77,24 +77,6 @@ public class Tracker {
         }
     }
 
-
-    /*public void delete(String id) {
-        int unique = 0;
-        for (int index = 0; index != this.position; index++) {
-            if (items[index].getId().equals(id)) {
-                this.items[index] = null;
-                unique = index;
-                Item[] buffer = new Item[this.items.length - 2];
-                buffer[0] = this.items[items.length - 1];
-                this.items[items.length - 1] = this.items[unique];
-                this.items[unique] = buffer[0];
-                System.arraycopy(this.items, 0, buffer, 0, (items.length - 2));
-                this.items = buffer;
-                break;
-            }
-        }
-    }*/
-
     /**
      * Метод, реализующий получение списка всех заявок.
      */

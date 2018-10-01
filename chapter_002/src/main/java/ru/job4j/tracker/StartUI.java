@@ -3,6 +3,8 @@ package ru.job4j.tracker;
 import javax.sound.midi.Track;
 import java.util.Arrays;
 
+import static java.util.Arrays.deepToString;
+
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
  * @version $01$
@@ -75,19 +77,19 @@ public class StartUI {
         while (!exit) {
             this.showMenu();
             String answer = this.input.ask("Введите пункт меню : ");
-            if (ADD.equals(answer)) {
+            if ("1".equals(answer)) {
                 this.createItem();
-            } else if (SHOW.equals(answer)) {
+            } else if ("2".equals(answer)) {
                 this.showAllItems();
-            } else if (EDIT.equals(answer)) {
+            } else if ("3".equals(answer)) {
                 this.editItem();
-            } else if (DEL.equals(answer)) {
+            } else if ("4".equals(answer)) {
                 this.deleteItem();
-            } else if (FINDID.equals(answer)) {
+            } else if ("5".equals(answer)) {
                 this.findItemById();
-            } else if (FINDNAME.equals(answer)) {
+            } else if ("6".equals(answer)) {
                 this.findItemByName();
-            } else if (EXIT.equals(answer)) {
+            } else if ("7".equals(answer)) {
                 exit = true;
             }
         }
@@ -100,13 +102,12 @@ public class StartUI {
         System.out.println("------------ Добавление новой заявки ------------");
         String name = this.input.ask("Введите имя заявки : ");
         String desc = this.input.ask("Введите описание заявки : ");
-        Item item = new Item(item);
+        Item item = new Item(name, desc, System.currentTimeMillis());
         System.out.println("------------ Новая заявка с id " + item.getId() + "------------");
     }
 
     private void showAllItems() {
-        System.out.println("------------ Список имеющихся заявок ------------");
-        System.out.println(Arrays.toString(tracker.findAll()));
+        System.out.println("Список заявок получен :" + deepToString(this.tracker.findAll()));
     }
 
     private void editItem() {
@@ -114,8 +115,30 @@ public class StartUI {
         String id = this.input.ask("Введите id заявки : ");
         String name = this.input.ask("Введите имя заявки : ");
         String desc = this.input.ask("Введите описание заявки : ");
-        Item replaceItem = new Item();
-        System.out.println("Заявка изменена" + tracker.replace(id, replaceItem));
+        Item replaceItem = new Item(name, desc, System.currentTimeMillis());
+        this.tracker.replace(id, replaceItem);
+        System.out.println("Заявка изменена");
+    }
+
+    private void deleteItem() {
+        System.out.println("------------ Удаление заявки ------------");
+        String id = this.input.ask("Введите id заявки : ");
+        this.tracker.delete(id);
+        System.out.println("Заявка удалена");
+    }
+
+    private void findItemById() {
+        System.out.println("------------ Поиск заявки по id ------------");
+        String id = this.input.ask("Введите id заявки : ");
+        this.tracker.findById(id);
+        System.out.println("Заявка получена :" + this.tracker.findById(id).toString());
+    }
+
+    private void findItemByName() {
+        System.out.println("------------ Поиск заявки по имени ------------");
+        String name = this.input.ask("Введите имя заявки : ");
+        this.tracker.findByName(name);
+        System.out.println("Заявка получена :" + deepToString(this.tracker.findByName(name)));
     }
 
     /**
@@ -124,16 +147,18 @@ public class StartUI {
     private void showMenu() {
         System.out.println("--- Меню ---");
         System.out.print("1");
-        System.out.println(". Show all items");
+        System.out.println(". Add item");
         System.out.print("2");
-        System.out.println(". Edit item");
+        System.out.println(". Show all items");
         System.out.print("3");
-        System.out.println(". Delete item");
+        System.out.println(". Edit item");
         System.out.print("4");
-        System.out.println(". Find item by id");
+        System.out.println(". Delete item");
         System.out.print("5");
-        System.out.println(". Find item by name");
+        System.out.println(". Find item by id");
         System.out.print("6");
+        System.out.println(". Find item by name");
+        System.out.print("7");
         System.out.println(". Exit program");
         System.out.println("Select: ");
     }
