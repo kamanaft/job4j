@@ -50,6 +50,7 @@ public class Logic3T {
             if (this.fillBy(Figure3T::hasMarkX, i, 0, 0, 1)
                     || this.fillBy(Figure3T::hasMarkX, 0, i, 1, 0)) {
                 result = true;
+                break;
             }
         }
         if (!result) {
@@ -70,6 +71,7 @@ public class Logic3T {
             if (this.fillBy(Figure3T::hasMarkO, i, 0, 0, 1)
                     || this.fillBy(Figure3T::hasMarkO, 0, i, 1, 0)) {
                 result = true;
+                break;
             }
         }
         if (!result) {
