@@ -1,19 +1,29 @@
 package ru.job4j.extender;
 
-public class Teacher extends Profession {
+public class Teacher extends Profession implements EarnMoney {
 
-    String subject;
-    int lectionHours;
+    public String subject;
+    public int lectionHours;
 
-    Teacher teacher = new Teacher();
-    //this.subject =subject;
-    //this.lectionHours;
+    public Teacher (){
+        System.out.println("Чему учить буду я пока не знаю... Но я существую");
+    }
 
-
-    public void teach() {
+    public Teacher (String name, String subject, int lectionHours) {
+        this.subject = subject;
+        this.lectionHours = lectionHours;
+        System.out.println("Я буду учить полезным вещам ваших деток...");
     }
 
     public void takeExam() {
     }
 
+    public void makeMoney() {
+        System.out.println("Учителям мало платят");
+    }
+
+    @Override
+    public void setBonus() {
+        System.out.println("Вам премия, сто целковых! Ни в чем себе не отказывайте!");
+    }
 }

@@ -9,8 +9,8 @@ public class Profession {
         this.name = name;
     }
 
-    public void setProfession(String userProfession) {
-        this.description = userProfession;
+    public void setDescription(String userDescription) {
+        this.description = userDescription;
     }
 
     public String getName() {
@@ -20,5 +20,24 @@ public class Profession {
     public String getDescription() {
         return this.description;
     }
+
+    public Profession (String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public Profession (){
+        this.name = "Франкенштейн";
+        this.description = "Ты не ввел имя и профессию, и поэтому я иду к тебе";
+    }
+
+    public void exist(){
+        System.out.println("Ура, я существую!");
+    }
+
+    public void makeMoney() {
+        System.out.println("Make money, be happy!!!");
+    }
+
 
 }
