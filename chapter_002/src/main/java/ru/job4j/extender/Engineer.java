@@ -6,11 +6,11 @@ public class Engineer extends Profession implements EarnMoney {
     public int experienceYears;
     public int salary;
 
-    public Engineer(){
+    public Engineer() {
         System.out.println("Создали меня, какого-то неполноценного");
     }
 
-    public Engineer(String name, String specialization, int experienceYears, int salary){
+    public Engineer(String name, String specialization, int experienceYears, int salary) {
         this.specialization = specialization;
         this.experienceYears = experienceYears;
         this.salary = salary;
@@ -30,7 +30,7 @@ public class Engineer extends Profession implements EarnMoney {
         return salary * experienceYears / 10;
     }
 
-    public void setBonus(){
+    public void setBonus() {
         System.out.println("Начальство одобрило премию в виде 13-й зарплаты");
     }
 

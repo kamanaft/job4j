@@ -5,11 +5,11 @@ public class Teacher extends Profession implements EarnMoney {
     public String subject;
     public int lectionHours;
 
-    public Teacher (){
+    public Teacher() {
         System.out.println("Чему учить буду я пока не знаю... Но я существую");
     }
 
-    public Teacher (String name, String subject, int lectionHours) {
+    public Teacher(String name, String subject, int lectionHours) {
         this.subject = subject;
         this.lectionHours = lectionHours;
         System.out.println("Я буду учить полезным вещам ваших деток...");

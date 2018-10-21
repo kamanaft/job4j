@@ -5,15 +5,15 @@ public class Test {
     public static void main(String[] args) {
 
         Engineer engineer = new Engineer("Ivanov", "RoofMaster", 5, 5000);
-        Doctor DeepGrave = new Doctor();
-        DeepGrave.sendToMorgue();
-        DeepGrave.makeDiagnose();
+        Doctor deepGrave = new Doctor();
+        deepGrave.sendToMorgue();
+        deepGrave.makeDiagnose();
         engineer.builtHouse();
         Teacher sidorov = new Teacher();
         Teacher petrov = new Teacher("Petrov", "history", 130);
         petrov.makeMoney();
         engineer.makeMoney();
-        DeepGrave.setBonus();
+        deepGrave.setBonus();
         EarnMoney earnMoneyTeacher = new Teacher();
         EarnMoney earnMoneyDoctor = new Doctor();
         earnMoneyTeacher.setBonus();
@@ -25,7 +25,7 @@ public class Test {
 
     }
 
-    public static void bonusToEveryone(EarnMoney earnMoney){
+    public static void bonusToEveryone(EarnMoney earnMoney) {
         earnMoney.setBonus();
     }
 

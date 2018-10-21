@@ -26,7 +26,7 @@ public class Doctor extends Profession implements EarnMoney {
         System.out.println("Раз врач сказал в морг, значит в морг! Хватит заниматься самолечением!");
     }
 
-    public void setBonus(){
+    public void setBonus() {
         System.out.println("Премия за заслуги перед человечеством 500 баксов");
     }
 }

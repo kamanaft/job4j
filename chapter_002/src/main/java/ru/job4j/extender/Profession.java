@@ -21,17 +21,17 @@ public class Profession {
         return this.description;
     }
 
-    public Profession (String name, String description) {
+    public Profession(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
-    public Profession (){
+    public Profession() {
         this.name = "Франкенштейн";
         this.description = "Ты не ввел имя и профессию, и поэтому я иду к тебе";
     }
 
-    public void exist(){
+    public void exist() {
         System.out.println("Ура, я существую!");
     }
 
