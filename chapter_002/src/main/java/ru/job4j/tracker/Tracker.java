@@ -1,12 +1,13 @@
 package ru.job4j.tracker;
 
+import java.sql.SQLOutput;
 import java.util.*;
 import java.lang.String;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $02$
- * @since 26.09.2018
+ * @version $03$
+ * @since 21.10.2018
  */
 
 public class Tracker {
@@ -54,7 +55,7 @@ public class Tracker {
      */
     public void replace(String id, Item item) {
         for (int index = 0; index != this.position; index++) {
-            if (item != null && item.getId().equals(id)) {
+            if (items[index].getId().equals(id)) {
                 this.items[index] = item;
                 item.setId(id);
                 break;
@@ -68,23 +69,36 @@ public class Tracker {
      * @param id Уникальный ключ.
      */
     public void delete(String id) {
-        for (int index = 0; index != this.position; index++) {
-            if (items[index].getId().equals(id)) {
-                System.arraycopy(this.items, index + 1, this.items, index, (items.length - 1 - index));
-                this.items[position--] = null;
-                break;
+        if (this.position == 0) {
+            System.out.println("There is no items jet");
+        } else {
+            for (int index = 0; index != this.position; index++) {
+                if (items[index].getId().equals(id)) {
+                    System.arraycopy(this.items, index + 1, this.items, index, (items.length - 1 - index));
+                    this.position--;
+                    //System.out.println("Item was deleted");
+                    break;
+                }
             }
         }
     }
+
 
     /**
      * Метод, реализующий получение списка всех заявок.
      */
     public Item[] findAll() {
-        Item[] result = new Item[this.position];
-        for (int index = 0; index != this.position; index++) {
-            result[index] = this.items[index];
+        if (this.position == 0) {
+            return null;
+        } else {
+            Item[] result = new Item[this.position];
+            for (int index = 0; index != this.position; index++) {
+                result[index] = this.items[index];
+            }
+            return result;
         }
+
+        /*
         int unique = result.length;
         for (int count = 0; count != result.length - 1; count++) {
             if (result[count] == null) {
@@ -93,7 +107,7 @@ public class Tracker {
                 unique--;
             }
         }
-        return Arrays.copyOf(result, unique);
+        return Arrays.copyOf(result, unique);*/
     }
 
     /**
@@ -131,7 +145,7 @@ public class Tracker {
     /**
      * Метод, реализующий добавление комментария.
      *
-     * @param id    Имя заявки.
+     * @param id      Имя заявки.
      * @param comment Комментарий к заявке.
      */
     public void addComment(String id, String comment) {

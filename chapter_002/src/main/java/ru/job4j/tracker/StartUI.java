@@ -77,19 +77,19 @@ public class StartUI {
         while (!exit) {
             this.showMenu();
             String answer = this.input.ask("Введите пункт меню : ");
-            if ("1".equals(answer)) {
+            if ("0".equals(answer)) {
                 this.createItem();
-            } else if ("2".equals(answer)) {
+            } else if ("1".equals(answer)) {
                 this.showAllItems();
-            } else if ("3".equals(answer)) {
+            } else if ("2".equals(answer)) {
                 this.editItem();
-            } else if ("4".equals(answer)) {
+            } else if ("3".equals(answer)) {
                 this.deleteItem();
-            } else if ("5".equals(answer)) {
+            } else if ("4".equals(answer)) {
                 this.findItemById();
-            } else if ("6".equals(answer)) {
+            } else if ("5".equals(answer)) {
                 this.findItemByName();
-            } else if ("7".equals(answer)) {
+            } else if ("6".equals(answer)) {
                 exit = true;
             }
         }
@@ -102,12 +102,18 @@ public class StartUI {
         System.out.println("------------ Добавление новой заявки ------------");
         String name = this.input.ask("Введите имя заявки : ");
         String desc = this.input.ask("Введите описание заявки : ");
-        Item item = new Item(name, desc, System.currentTimeMillis());
-        System.out.println("------------ Новая заявка с id " + item.getId() + "------------");
+        Item item = new Item(name, desc);
+        this.tracker.add(item);
+        System.out.println("*** Добавлена заявка: имя " + item.getName() + ", описание " + item.getDescription() + ", id " + item.getId() + " ***");
     }
 
     private void showAllItems() {
-        System.out.println("Список заявок получен :" + deepToString(this.tracker.findAll()));
+        if (this.tracker.findAll() != null) {
+            System.out.println("Список заявок получен :" + deepToString(this.tracker.findAll()));
+        } else {
+            System.out.println("There is no items jet");
+            System.out.println();
+        }
     }
 
     private void editItem() {
@@ -115,9 +121,9 @@ public class StartUI {
         String id = this.input.ask("Введите id заявки : ");
         String name = this.input.ask("Введите имя заявки : ");
         String desc = this.input.ask("Введите описание заявки : ");
-        Item replaceItem = new Item(name, desc, System.currentTimeMillis());
+        Item replaceItem = new Item(name, desc);
         this.tracker.replace(id, replaceItem);
-        System.out.println("Заявка изменена");
+        System.out.println("*** Заявка изменена ***");
     }
 
     private void deleteItem() {
@@ -146,21 +152,21 @@ public class StartUI {
      */
     private void showMenu() {
         System.out.println("--- Меню ---");
-        System.out.print("1");
+        System.out.print("0");
         System.out.println(". Add item");
-        System.out.print("2");
+        System.out.print("1");
         System.out.println(". Show all items");
-        System.out.print("3");
+        System.out.print("2");
         System.out.println(". Edit item");
-        System.out.print("4");
+        System.out.print("3");
         System.out.println(". Delete item");
-        System.out.print("5");
+        System.out.print("4");
         System.out.println(". Find item by id");
-        System.out.print("6");
+        System.out.print("5");
         System.out.println(". Find item by name");
-        System.out.print("7");
+        System.out.print("6");
         System.out.println(". Exit program");
-        System.out.println("Select: ");
+        //System.out.println("Select: ");
     }
 
     /**
