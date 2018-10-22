@@ -2,8 +2,8 @@ package ru.job4j.tracker;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $01$
- * @since 20.09.2018
+ * @version $02$
+ * @since 21.10.2018
  */
 
 public class Item {
@@ -16,7 +16,7 @@ public class Item {
 
     private String comment;
 
-    private long create;
+    private String create;
 
     public Item() {
     }
@@ -27,12 +27,12 @@ public class Item {
         this.id = id;
     }*/
 
-    /*public Item(String name, String description, long create, String comment) {
+    public Item(String name, String description, String comment, String create) {
         this.name = name;
         this.description = description;
         this.comment = comment;
         this.create = create;
-    }*/
+    }
 
     /*public Item(String name, String description, long create) {
         this.name = name;
@@ -79,8 +79,8 @@ public class Item {
                 + "id='" + id + '\''
                 + ", name='" + name + '\''
                 + ", description='" + description + '\''
-                // + ", comment='" + comment + '\''
-                // + ", create=" + create
+                + ", comment='" + comment + '\''
+                + ", create=" + create
                 + '}';
     }
 

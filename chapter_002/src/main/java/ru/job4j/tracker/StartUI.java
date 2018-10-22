@@ -100,8 +100,10 @@ public class StartUI {
      */
     private void createItem() {
         System.out.println("------------ Добавление новой заявки ------------");
-        String name = this.input.ask("Введите имя заявки : ");
-        String desc = this.input.ask("Введите описание заявки : ");
+        String name = this.input.ask("Введите имя заявки: ");
+        String desc = this.input.ask("Введите описание заявки: ");
+        //String comment = this.input.ask("Введите комментарий к заявке: ");
+        //String create = this.input.ask("Введите номер заявки: ");
         Item item = new Item(name, desc);
         this.tracker.add(item);
         System.out.println("*** Добавлена заявка: имя " + item.getName() + ", описание " + item.getDescription() + ", id " + item.getId() + " ***");
