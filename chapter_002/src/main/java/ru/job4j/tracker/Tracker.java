@@ -54,14 +54,17 @@ public class Tracker {
      * @param id   Уникальный ключ.
      * @param item Новая заявка.
      */
-    public void replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
+        boolean success = false;
         for (int index = 0; index != this.position; index++) {
             if (items[index].getId().equals(id)) {
                 this.items[index] = item;
                 item.setId(id);
+                success = true;
                 break;
             }
         }
+        return success;
     }
 
     /**
@@ -69,7 +72,8 @@ public class Tracker {
      *
      * @param id Уникальный ключ.
      */
-    public void delete(String id) {
+    public boolean delete(String id) {
+        boolean success = false;
         if (this.position == 0) {
             System.out.println("There is no items jet");
         } else {
@@ -77,11 +81,12 @@ public class Tracker {
                 if (items[index].getId().equals(id)) {
                     System.arraycopy(this.items, index + 1, this.items, index, (items.length - 1 - index));
                     this.position--;
-                    //System.out.println("Item was deleted");
+                    success = true;
                     break;
                 }
             }
         }
+        return success;
     }
 
 
