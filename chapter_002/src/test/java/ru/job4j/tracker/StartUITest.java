@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -7,11 +9,22 @@ import static org.junit.Assert.assertThat;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $01$
- * @since 22.10.2018
+ * @version $02$
+ * @since 10.11.2018
  */
 
 public class StartUITest {
+
+    @Before
+    public void loadOutput() {
+        System.out.println("execute before method");
+    }
+
+    @After
+    public void backOutput() {
+        System.out.println("execute after method");
+    }
+
 
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
@@ -54,4 +67,5 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         assertThat(tracker.findById(item2.getId()).getName(), is("test 2"));
     }
+
 }
