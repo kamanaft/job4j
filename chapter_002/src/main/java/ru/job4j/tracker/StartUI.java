@@ -2,6 +2,8 @@ package ru.job4j.tracker;
 
 import javax.sound.midi.Track;
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.util.Arrays.deepToString;
 
@@ -72,6 +74,21 @@ public class StartUI {
     /**
      * Основной цикл программы.
      */
+
+    /*public void init() {
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
+        }
+        do {
+            menu.show();
+            menu.select(input.ask("select:", range));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+    }*/
+
+
     public void init() {
         boolean exit = false;
         while (!exit) {

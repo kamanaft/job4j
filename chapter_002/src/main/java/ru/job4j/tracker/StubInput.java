@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
  * @version $01$
@@ -23,5 +25,10 @@ public class StubInput implements Input {
     public String ask(String question) {
         return this.value[this.position++];
     }
+
+   /* @Override
+    public int ask(String s, List<Integer> range) {
+        return 0;
+    }*/
 
 }
