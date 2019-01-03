@@ -75,7 +75,7 @@ public class StartUI {
      * Основной цикл программы.
      */
 
-    /*public void init() {
+    public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         List<Integer> range = new ArrayList<>();
         menu.fillActions();
@@ -86,10 +86,10 @@ public class StartUI {
             menu.show();
             menu.select(input.ask("select:", range));
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
-    }*/
+    }
 
 
-    public void init() {
+    /*public void init() {
         boolean exit = false;
         while (!exit) {
             this.showMenu();
@@ -110,7 +110,7 @@ public class StartUI {
                 exit = true;
             }
         }
-    }
+    }*/
 
     /**
      * Метод реализует добавление новой заявки в хранилище.

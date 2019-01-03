@@ -4,8 +4,8 @@ import java.util.List;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $01$
- * @since 22.10.2018
+ * @version $02$
+ * @since 03.01.2019
  */
 
 public class StubInput implements Input {
@@ -26,9 +26,21 @@ public class StubInput implements Input {
         return this.value[this.position++];
     }
 
-   /* @Override
-    public int ask(String s, List<Integer> range) {
-        return 0;
-    }*/
+    @Override
+    public int ask(String question, List<Integer> range) {
+        int key = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Out of menu range");
+        }
+    }
 
 }
