@@ -21,17 +21,18 @@ public class ValidateInput implements Input {
         return this.input.ask(question);
     }
 
-    public int ask(String question, List<Integer> range) {
+    public int ask(String question, int[] range) {
         boolean invalid = true;
         int value = -1;
         do {
             try {
                 value = this.input.ask(question, range);
                 invalid = false;
-            } catch (NumberFormatException nfe) {
-                System.out.println("Please enter validate data again.");
             } catch (MenuOutException moe) {
                 System.out.println("Please select key from menu.");
+            } catch (NumberFormatException nfe) {
+                System.out.println("Please enter validate data again.");
+
             }
         }   while (invalid);
         return value;
