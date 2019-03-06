@@ -49,10 +49,10 @@ public class ValidateInputTest {
     @Test
     public void whenOutOfRangeInput() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"invalid", "90"})
+                new StubInput(new String[] {"50", "1"})
         );
 
-        input.ask("Enter", new int[] {90});
+        input.ask("Enter", new int[] {1});
         assertThat(
                 this.mem.toString(),
                 is(

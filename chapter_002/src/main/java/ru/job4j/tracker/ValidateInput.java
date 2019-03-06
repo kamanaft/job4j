@@ -21,6 +21,12 @@ public class ValidateInput implements Input {
         return this.input.ask(question);
     }
 
+    /**
+     * Проверка правильности ввода
+     * @param question - Вопрос
+     * @param range - Пункт меню
+     * @return - Ключ меню
+     */
     public int ask(String question, int[] range) {
         boolean invalid = true;
         int value = -1;
