@@ -29,6 +29,32 @@ public class StubInput implements Input {
     @Override
     public int ask(String question, int[] range) {
         int key = Integer.valueOf(this.ask(question));
+        if (!this.isValid(key, range)) {
+            throw new MenuOutException("Out of menu range");
+        }
+        return key;
+    }
+
+    /**
+     * Проверка правильности ввода
+     * @param key
+     * @param range
+     * @return Возврат результатат проверки
+     */
+    public boolean isValid(int key, int[] range) {
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        return exist;
+    }
+
+    /*@Override
+    public int ask(String question, int[] range) {
+        int key = Integer.valueOf(this.ask(question));
         boolean exist = false;
         for (int value : range) {
             if (value == key) {
@@ -41,6 +67,6 @@ public class StubInput implements Input {
         } else {
             throw new MenuOutException("Out of menu range");
         }
-    }
+    }*/
 
 }
