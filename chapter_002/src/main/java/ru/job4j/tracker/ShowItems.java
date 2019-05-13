@@ -2,7 +2,12 @@ package ru.job4j.tracker;
 
 public class ShowItems implements UserAction {
 
-    public ShowItems(int i, String s) {
+    private int i;
+    private String s;
+
+    ShowItems(int i, String s) {
+        this.i = i;
+        this.s = s;
     }
 
     @Override

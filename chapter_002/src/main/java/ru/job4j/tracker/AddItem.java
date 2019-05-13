@@ -2,7 +2,10 @@ package ru.job4j.tracker;
 
 public class AddItem implements UserAction {
 
-    public AddItem(int i, String s) {
+    private int i;
+    private String s;
+
+    AddItem(int i, String s) {
     }
 
     @Override

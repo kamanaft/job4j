@@ -1,7 +1,13 @@
 package ru.job4j.tracker;
 
 public class UpdateItem implements UserAction {
-    public UpdateItem(int i, String s) {
+
+    private int i;
+    private String s;
+
+    UpdateItem(int i, String s) {
+        this.i = i;
+        this.s = s;
     }
 
     @Override

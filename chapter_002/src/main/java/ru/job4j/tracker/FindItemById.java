@@ -2,7 +2,12 @@ package ru.job4j.tracker;
 
 public class FindItemById implements UserAction {
 
-    public FindItemById(int i, String s) {
+    private int i;
+    private String s;
+
+    FindItemById(int i, String s) {
+        this.i = i;
+        this.s = s;
     }
 
     @Override

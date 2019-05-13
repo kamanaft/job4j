@@ -2,7 +2,12 @@ package ru.job4j.tracker;
 
 public class DeleteItem implements UserAction {
 
-    public DeleteItem(int i, String s) {
+    private int i;
+    private String s;
+
+    DeleteItem(int i, String s) {
+        this.i = i;
+        this.s = s;
     }
 
     @Override
