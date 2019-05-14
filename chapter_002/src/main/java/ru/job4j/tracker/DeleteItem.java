@@ -1,18 +1,9 @@
 package ru.job4j.tracker;
 
-public class DeleteItem implements UserAction {
+public class DeleteItem extends BaseAction {
 
-    private int i;
-    private String s;
-
-    DeleteItem(int i, String s) {
-        this.i = i;
-        this.s = s;
-    }
-
-    @Override
-    public int key() {
-        return 3;
+    DeleteItem(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -22,10 +13,5 @@ public class DeleteItem implements UserAction {
         if (tracker.delete(id)) {
             System.out.println("Заявка удалена");
         }
-    }
-
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), "Удалить заявку");
     }
 }

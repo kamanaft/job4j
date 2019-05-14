@@ -1,18 +1,9 @@
 package ru.job4j.tracker;
 
-public class UpdateItem implements UserAction {
+public class UpdateItem extends BaseAction {
 
-    private int i;
-    private String s;
-
-    UpdateItem(int i, String s) {
-        this.i = i;
-        this.s = s;
-    }
-
-    @Override
-    public int key() {
-        return 2;
+    UpdateItem(int key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -23,14 +14,9 @@ public class UpdateItem implements UserAction {
         String desc = input.ask("Введите описание заявки : ");
         Item replaceItem = new Item(name, desc);
         if (tracker.replace(id, replaceItem)) {
-            System.out.println("*** Заявка изменена ***");
+            System.out.println("*** Заявка изменена ***\n");
         } else {
-            System.out.println("*** Заявка не найдена ***");
+            System.out.println("*** Заявка не найдена ***\n");
         }
-    }
-
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), "Редактировать заявку");
     }
 }

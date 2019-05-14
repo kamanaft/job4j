@@ -27,12 +27,12 @@ public class Item {
         this.id = id;
     }*/
 
-    public Item(String name, String description, String comment, String create) {
+    /*public Item(String name, String description) {
         this.name = name;
         this.description = description;
         this.comment = comment;
         this.create = create;
-    }
+    }*/
 
     /*public Item(String name, String description, long create) {
         this.name = name;
@@ -79,8 +79,8 @@ public class Item {
                 + "id='" + id + '\''
                 + ", name='" + name + '\''
                 + ", description='" + description + '\''
-                + ", comment='" + comment + '\''
-                + ", create=" + create
+                /*+ ", comment='" + comment + '\''
+                + ", create=" + create*/
                 + '}';
     }
 

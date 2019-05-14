@@ -7,8 +7,8 @@ import static java.util.Arrays.deepToString;
 
 /**
  * @author Alexey Zhukov (mailto:hadzage@gmail.com)
- * @version $02$
- * @since 12.05.2019
+ * @version $03$
+ * @since 14.05.2019
  */
 
 public class StartUI {
@@ -17,7 +17,7 @@ public class StartUI {
      * Получение данных от пользователя.
      */
     private final Input input;
-    private boolean working = true;
+    private static boolean working = true;
 
     /**
      * Хранилище заявок.
@@ -48,15 +48,11 @@ public class StartUI {
         do {
             menu.show();
             menu.select(input.ask("select:", range));
-        } while (this.working);
+        } while (working);
     }
 
-
-    //if("y".equals(this.input.ask("Exit?(y): "))) {
-
-
-    public void exit() {
-        this.working = false;
+    static void exit() {
+        working = false;
     }
 
     /**

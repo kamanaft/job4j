@@ -103,17 +103,6 @@ public class Tracker {
             }
             return result;
         }
-
-        /*
-        int unique = result.length;
-        for (int count = 0; count != result.length - 1; count++) {
-            if (result[count] == null) {
-                result[count] = result[result.length - 1];
-                result[result.length - 1] = null;
-                unique--;
-            }
-        }
-        return Arrays.copyOf(result, unique);*/
     }
 
     /**
