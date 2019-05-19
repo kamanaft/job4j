@@ -49,7 +49,7 @@ public class MenuTracker {
         this.actions.add(new DeleteItem(3, "Удадить заявку"));
         this.actions.add(new FindItemById(4, "Найти заявку по Id"));
         this.actions.add(new FindItemsByName(5, "Найти заявку по имени"));
-        this.actions.add(new ExitProgram(6, "Выход из программы"));
+        this.actions.add(new ExitProgram(6, "Выход из программы", ui));
     }
 
     /**

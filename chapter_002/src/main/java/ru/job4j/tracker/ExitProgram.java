@@ -2,8 +2,11 @@ package ru.job4j.tracker;
 
 public class ExitProgram extends BaseAction {
 
-    ExitProgram(int key, String name) {
+    private StartUI ui;
+
+    ExitProgram(int key, String name, StartUI ui) {
         super(key, name);
+        this.ui = ui;
     }
 
 
@@ -11,6 +14,6 @@ public class ExitProgram extends BaseAction {
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Выход из программы --------------");
-        StartUI.exit();
+        this.ui.exit();
     }
 }
